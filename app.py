@@ -10,13 +10,13 @@ time_sleep = random.randrange(15, 180, 2)
 time.sleep(time_sleep)
 
 cur_time = datetime.datetime.now().strftime("%d_%m_%Y_%H_%M")
-file_name = f"D:\\Programs\\autoscreenshot\\{cur_time}.jpg"
+file_name = f"{os.getcwd()}\{cur_time}.jpg"
 image = pyautogui.screenshot(file_name)
 
 
-USER = ''
-PASS = ''
-HOST = ''
+USER = os.getenv("USER_FTP")
+PASS = os.getenv("FTP_PASS")
+HOST = os.getenv("HOST_FTP")
 PORT = 21
 ftp = ftplib.FTP(HOST)
 ftp.login(USER, PASS)
